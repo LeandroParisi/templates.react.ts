@@ -84,6 +84,7 @@ module.exports = {
         '@typescript-eslint/no-this-alias': 0,
         '@typescript-eslint/no-non-null-assertion': 0,
         semi: ['error', 'never'],
+        '@typescript-eslint/no-floating-promises': 0,
         // temp allowing during TS migration
         '@typescript-eslint/no-unsafe-argument': 0,
         '@typescript-eslint/unbound-method': 0,

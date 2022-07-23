@@ -9,7 +9,7 @@ import CONSTANTS, { Envs } from './Configuration/CONSTANTS'
 import ApplicationError from './Errors/ApplicationError'
 
 const shouldLogOnFile = CONSTANTS.ENV === Envs.DSV || CONSTANTS.ENV === Envs.PROD
-const shouldLogOnConsole = CONSTANTS.ENV === Envs.LOCAL
+// const shouldLogOnConsole = CONSTANTS.ENV === Envs.LOCAL
 const shouldLog = CONSTANTS.ENV !== Envs.TEST
 // const shouldLog = true
 const date = new Date()

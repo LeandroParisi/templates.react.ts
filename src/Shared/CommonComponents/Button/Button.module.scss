@@ -1,0 +1,16 @@
+@import "../../../Assets/scss/mixins.scss";
+@import "../../../Assets/scss/colors.scss";
+@import "../../../Assets/scss/fonts.scss";
+@import "../../../Assets/scss/globals.module.scss";
+@import "../../../Assets/scss/globals.module.scss";
+
+.main {
+  @extend .mainButton;
+}
+
+.white {
+  @extend .whiteButton;
+}
+
+.none {
+}
