@@ -1,9 +1,15 @@
 import globalStyles from 'assets/scss/globals.module.scss'
-import PropTypes from 'prop-types'
-import { useState } from 'react'
+import { ReactNode, useState } from 'react'
+import Header from 'Shared/Templates/BaseLayout/Components/Header/Header'
+import Overlay from 'Shared/Templates/Overlay/Overlay'
 import styles from './BaseLayout.module.scss'
 
-const BaseLayout = ({ children, mainPage }) => {
+export interface BaseLayoutProps {
+  children: ReactNode,
+  isMainPage?: boolean,
+}
+
+const BaseLayout = ({ children, isMainPage } : BaseLayoutProps) => {
   const [openMenu, setOpenMenu] = useState(false)
 
   return (
@@ -18,7 +24,7 @@ const BaseLayout = ({ children, mainPage }) => {
       />
 
       <div className={styles.baseLayout}>
-        {mainPage
+        {isMainPage
           ? <section className={globalStyles.mainPage}>{ children }</section>
           : children }
       </div>
@@ -26,13 +32,8 @@ const BaseLayout = ({ children, mainPage }) => {
   )
 }
 
-BaseLayout.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.element).isRequired,
-  mainPage: PropTypes.bool,
-}
-
 BaseLayout.defaultProps = {
-  mainPage: true,
+  isMainPage: true,
 }
 
 export default BaseLayout

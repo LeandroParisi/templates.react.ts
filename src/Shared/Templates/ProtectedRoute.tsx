@@ -1,36 +1,29 @@
-import React, { useEffect } from 'react'
-import PropTypes from 'prop-types'
-import routes from 'shared/libs/routes/routes'
-import { Route, useHistory } from 'react-router-dom'
-import userAuth from 'shared/services/users/userAuth'
+import React from 'react'
+import { Route } from 'react-router-dom'
 
-const ProtectedRoute = ({ component: Component, ...rest }) => {
-  const history = useHistory()
+const ProtectedRoute = ({ component, ...rest } : any) => {
+  // const history = useHistory()
 
-  useEffect(() => {
-    const authenticate = async () => {
-      const response = await userAuth()
-      if (response?.status !== 200) {
-        history.push(routes.login)
-      }
-    }
-    authenticate()
-  }, [history.location.pathname])
+  // useEffect(() => {
+  //   const authenticate = async () => {
+  //     const response = await userAuth()
+  //     if (response?.status !== 200) {
+  //       history.push(routes.login)
+  //     }
+  //   }
+  //   authenticate()
+  // }, [history.location.pathname])
+
+  const routeComponent = (props: any) => React.createElement(component, props)
 
   return (
     <>
       <Route
         {...rest}
-        render={
-      (props) => <Component {...rest} {...props} />
-    }
+        render={ routeComponent }
       />
     </>
   )
-}
-
-ProtectedRoute.propTypes = {
-  component: PropTypes.element.isRequired,
 }
 
 export default ProtectedRoute

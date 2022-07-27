@@ -1,7 +1,7 @@
-export const convertHourToDate = (hour) => {
-  if (!hour) {
-    return hour
-  }
+export const ConvertHourToDate = (hour : string) : Date => {
+  // if (!hour) {
+  //   return hour
+  // }
   const [start, end] = hour.split(':')
   const convertedHour = new Date()
   convertedHour.setHours(+start, +end, 0)
@@ -9,7 +9,7 @@ export const convertHourToDate = (hour) => {
   return convertedHour
 }
 
-export const extractHoursFromDate = (date) => {
+export const ExtractHoursFromDate = (date : Date) : string => {
   const hours = date.getHours().toString()
   let minutes = date.getMinutes().toString()
   minutes = minutes.length === 2 ? minutes : `0${minutes}`
